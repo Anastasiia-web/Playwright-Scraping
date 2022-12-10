@@ -1,0 +1,21 @@
+{
+  "name": "playwright-scraping",
+  "version": "1.0.0",
+  "description": "Web scraping with Playwright",
+  "main": "index.js",
+  "scripts": {
+    "scraper": "node scraper.ts",
+    "scraper:3": "for run in {1..10}; do node scraper.ts; done"
+  },
+  "keywords": [
+    "Web",
+    "Scraping",
+    "Playwright"
+  ],
+  "author": "Anastasiia Ivashchenko",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.28.1",
+    "prettier": "^2.8.1"
+  }
+}
