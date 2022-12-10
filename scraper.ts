@@ -1,5 +1,6 @@
 const playwright = require('playwright')
 const random_useragent = require('random-useragent')
+const fs = require('fs')                                            // access to file system functionality (read, write, ect.)
 
 const BASE_URL = 'https://github.com/topics/playwright'
 
@@ -30,9 +31,11 @@ const BASE_URL = 'https://github.com/topics/playwright'
                 }
             })
         })
-        console.log(repositories)
-        // Store data in the file
+        // console.log(repositories)
 
+        // Store data in the file
+        const logger = fs.createWriteStream('data.txt', { flag: 'w' })
+        logger.write(JSON.stringify(repositories, null, ' '))
 
         // Close browser
         await browser.close()
@@ -40,3 +43,6 @@ const BASE_URL = 'https://github.com/topics/playwright'
         console.log(error)
         process.exit(1)
     })
+
+
+    // npm run scraper
